@@ -1,11 +1,11 @@
+import "../../Styles/auth.css"
 import { useState, useEffect } from "react"
 import { Button, Form, Container, Row, Col } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router"
-import Loading from "../components/Loading"
-import register from "../redux/register/registerActions"
-import AlertUser from "../components/AlertUser"
-
+import Loading from "../Loading"
+import register from "../../redux/register/registerActions"
+import AlertUser from "../AlertUser"
 function Register() {
   const [registerData, setregisterData] = useState({
     name: "",
@@ -62,7 +62,7 @@ function Register() {
         <h1> Register</h1>
         <Row>
           <Col>
-            <div className="mx-auto">
+            <div className="mx-auto register">
               {loading && <Loading />}
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicName">

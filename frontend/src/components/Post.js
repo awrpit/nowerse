@@ -21,21 +21,6 @@ function Post() {
     dispatch(getPost(postId))
   }, [dispatch, getPost])
 
-  // const submitHandler = async () => {
-  //   const userInfo = JSON.parse(localStorage.getItem("userInfo"))
-  //   console.log(userInfo)
-  //   try {
-  //     const res = await axios.get(`/posts/${postId}`, {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${userInfo.token}`,
-  //       },
-  //     })
-  //     console.log(res.data)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
   const deleteHandler = async () => {
     dispatch(deletePost(postId))
     navigate("/home")

@@ -1,10 +1,9 @@
-import React from "react"
-import axios from "axios"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import getPosts from "../redux/getPosts/getPostsActions"
 import PostCard from "./PostCard"
 import Loading from "./Loading"
+import AlertUser from "./AlertUser"
 
 function HomePage() {
   const dispatch = useDispatch()
@@ -15,25 +14,10 @@ function HomePage() {
     dispatch(getPosts())
   }, [dispatch, getPosts])
 
-  const submitHandler = async () => {
-    const userInfo = JSON.parse(localStorage.getItem("userInfo"))
-    try {
-      const res = await axios.get("/posts", {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      })
-      console.log(res.data)
-    } catch (error) {
-      console.log(error)
-    }
-    dispatch(getPosts())
-  }
-
   return (
     <div>
       {loading && <Loading />}
+
       {responseData &&
         responseData.posts &&
         responseData.posts.map((post) => (
@@ -45,7 +29,8 @@ function HomePage() {
             createdBy={post.createdBy}
           />
         ))}
-      <button onClick={submitHandler}>fuck yee</button>
+
+      {error && <AlertUser alert={error} />}
     </div>
   )
 }

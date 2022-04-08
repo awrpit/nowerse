@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { Container, Row, Form, Col, Button } from "react-bootstrap"
-import "./index.css"
+import "../../Styles/auth.css"
 import { useDispatch, useSelector } from "react-redux"
-import { login } from "../redux/login/loginActions"
+import { login } from "../../redux/login/loginActions"
 import { useNavigate } from "react-router"
-import Loading from "../components/Loading"
-import AlertUser from "../components/AlertUser"
+import Loading from "../Loading"
+import AlertUser from "../AlertUser"
 
 function Login() {
   const [loginData, setloginData] = useState({

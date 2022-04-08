@@ -22,6 +22,9 @@ function NavBar() {
               <Nav.Item>
                 <Nav.Link href="/compose"> Compose </Nav.Link>
               </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="/compose"> Logout </Nav.Link>
+              </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -27,7 +27,6 @@ const getPostsFailure = (error) => {
 const getPosts = () => {
   return async (dispatch) => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"))
-    console.log(userInfo)
     try {
       dispatch(getPostsRequest)
       const res = await axios.get("/posts", {
@@ -36,7 +35,6 @@ const getPosts = () => {
           Authorization: `Bearer ${userInfo.token}`,
         },
       })
-      console.log(res.data)
       dispatch(getPostsSuccess(res.data))
     } catch (error) {
       dispatch(getPostsFailure(error.response.data.err))
