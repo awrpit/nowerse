@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 import { Container, Row, Form, Col, Button } from "react-bootstrap"
-import "../../Styles/auth.css"
 import { useDispatch, useSelector } from "react-redux"
 import { login } from "../../redux/login/loginActions"
 import { useNavigate } from "react-router"
 import Loading from "../Loading"
 import AlertUser from "../AlertUser"
+import Styles from "../../Styles/auth.module.css"
 
 function Login() {
-  const [loginData, setloginData] = useState({
+  const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   })
@@ -21,7 +21,7 @@ function Login() {
 
   const changeHandler = (e) => {
     const { name, value } = e.target
-    setloginData((prevData) => {
+    setLoginData((prevData) => {
       return { ...prevData, [name]: value }
     })
   }
@@ -36,15 +36,14 @@ function Login() {
     e.preventDefault()
     dispatch(login(loginData))
   }
-
   return (
     <>
       <Container>
         {loading && <Loading />}
-        <h1> Login </h1>
+        <h1 className={Styles.title}> Login </h1>
         <Row>
           <Col>
-            <div className="login mx-auto">
+            <div className={Styles.form}>
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>

@@ -1,0 +1,9 @@
+.form {
+  max-width: 60vw;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  padding: 25px 0;
+}

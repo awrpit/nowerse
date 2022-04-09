@@ -12,6 +12,7 @@ import Post from "./components/Post"
 import UpdatePost from "./components/UpdatePost"
 import "./Styles/index.css"
 import "./Styles/bootstrap.min.css"
+import Logout from "./components/Logout"
 
 function App(props) {
   let location = useLocation()
@@ -21,6 +22,7 @@ function App(props) {
         {location.pathname !== "/" ? <NavBar /> : null}
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<HomePage />} />

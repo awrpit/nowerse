@@ -5,16 +5,24 @@ function PostCard(props) {
   const navigate = useNavigate()
 
   return (
-    <Card>
+    <Card style={{ margin: "20px" }}>
+      <Card.Header
+        style={{
+          color: "#212529",
+          fontSize: "1.2rem",
+          fontWeight: "700",
+        }}
+      >
+        {props.title}
+      </Card.Header>
       <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
         <Card.Text>{trimmedContent}...</Card.Text>
         <Button
           variant="outline-dark"
           className="btn-sm"
           onClick={() => navigate(`/post/${props.postId}`)}
         >
-          Read More
+          Read Post
         </Button>
       </Card.Body>
     </Card>

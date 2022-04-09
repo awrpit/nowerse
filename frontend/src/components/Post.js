@@ -7,6 +7,8 @@ import { Card } from "react-bootstrap"
 import { Button } from "react-bootstrap"
 import { useNavigate } from "react-router"
 import { deletePost } from "../redux/deletePost/deletePostActions"
+import Loading from "./Loading"
+import AlertUser from "./AlertUser"
 
 function Post() {
   const params = useParams()
@@ -19,48 +21,63 @@ function Post() {
 
   useEffect(() => {
     dispatch(getPost(postId))
-  }, [dispatch, getPost])
+  }, [dispatch, postId])
 
   const deleteHandler = async () => {
     dispatch(deletePost(postId))
     navigate("/home")
-    // dispatch(deletePost(postId))
-    // const userInfo = JSON.parse(localStorage.getItem("userInfo"))
-    // console.log(postId)
-    // console.log(userInfo.token)
-    // try {
-    //   const res = await axios.delete("/posts/" + postId, {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${userInfo.token}`,
-    //     },
-    //   })
-    //   console.log(res)
-    //   navigate("/home")
-    // } catch (error) {
-    //   console.log(error)
-    // }
   }
   return (
     <>
-      hey this is the {postId}
+      {loading && <Loading />}
       {data && data.post && (
-        <Card>
+        <Card
+          styles={{
+            display: "flex",
+            justifyContent: "center",
+            width: "30px",
+          }}
+        >
           <Card.Body>
-            <Card.Title> {data.post.title}</Card.Title>
-            <Card.Text>{data.post.content}</Card.Text>
-            <Button variant="primary" onClick={deleteHandler}>
+            <Card.Title
+              style={{
+                fontSize: "2.5rem",
+                fontWeight: "700",
+                justifyContent: "center",
+              }}
+            >
+              {" "}
+              {data.post.title}
+            </Card.Title>
+            <Card.Text
+              style={{
+                fontSize: "1.2rem",
+              }}
+            >
+              {data.post.content}
+            </Card.Text>
+            <Button
+              variant="outline-dark"
+              style={{
+                margin: "15px",
+              }}
+              onClick={deleteHandler}
+            >
               Delete Post
             </Button>
             <Button
               variant="primary"
               onClick={() => navigate("/update/" + postId)}
+              style={{
+                margin: "15px",
+              }}
             >
               Update Post
             </Button>
           </Card.Body>
         </Card>
       )}
+      {error && <AlertUser alert="error" />}
     </>
   )
 }

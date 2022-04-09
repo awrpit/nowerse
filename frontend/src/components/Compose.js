@@ -39,17 +39,32 @@ function Compose() {
       {loading && <Loading />}
       <Container>
         <Form.Group className="mb-3">
-          <Form.Label>Enter Title </Form.Label>
+          <Form.Label
+            style={{
+              marginTop: "30px",
+              fontSize: "1.5rem",
+              fontWeight: "bold",
+            }}
+          >
+            Enter Title{" "}
+          </Form.Label>
           <Form.Control
             type="text"
-            placeholder="enter title"
             name="title"
             value={post.title}
             onChange={changeHandler}
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Content </Form.Label>
+          <Form.Label
+            style={{
+              marginTop: "15px",
+              fontSize: "1.5rem",
+              fontWeight: "bold",
+            }}
+          >
+            Content{" "}
+          </Form.Label>
           <FormControl
             as="textarea"
             style={{ height: "40vh" }}

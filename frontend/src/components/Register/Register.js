@@ -1,4 +1,3 @@
-import "../../Styles/auth.css"
 import { useState, useEffect } from "react"
 import { Button, Form, Container, Row, Col } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
@@ -6,6 +5,7 @@ import { useNavigate } from "react-router"
 import Loading from "../Loading"
 import register from "../../redux/register/registerActions"
 import AlertUser from "../AlertUser"
+import Styles from "../../Styles/auth.module.css"
 function Register() {
   const [registerData, setregisterData] = useState({
     name: "",
@@ -59,10 +59,10 @@ function Register() {
   return (
     <>
       <Container>
-        <h1> Register</h1>
+        <h1 className={Styles.title}> Register</h1>
         <Row>
           <Col>
-            <div className="mx-auto register">
+            <div className={Styles.form}>
               {loading && <Loading />}
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicName">

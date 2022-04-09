@@ -1,0 +1,14 @@
+.landingPage {
+  text-align: center;
+  margin: 10px;
+}
+
+.title {
+  padding-top: 100px;
+  padding-bottom: 30px;
+}
+
+.landingbtn {
+  margin: 20px;
+  min-width: 200px;
+}
