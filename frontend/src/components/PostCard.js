@@ -18,7 +18,7 @@ function PostCard(props) {
       <Card.Body>
         <Card.Text>{trimmedContent}...</Card.Text>
         <Button
-          variant="outline-dark"
+          variant="outline-primary"
           className="btn-sm"
           onClick={() => navigate(`/post/${props.postId}`)}
         >

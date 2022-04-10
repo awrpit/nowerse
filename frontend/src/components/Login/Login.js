@@ -5,7 +5,6 @@ import { login } from "../../redux/login/loginActions"
 import { useNavigate } from "react-router"
 import Loading from "../Loading"
 import AlertUser from "../AlertUser"
-import Styles from "../../Styles/auth.module.css"
 
 function Login() {
   const [loginData, setLoginData] = useState({
@@ -40,10 +39,23 @@ function Login() {
     <>
       <Container>
         {loading && <Loading />}
-        <h1 className={Styles.title}> Login </h1>
+        <h1
+          style={{
+            textAlign: "center",
+            padding: "25px 0",
+          }}
+        >
+          {" "}
+          Login{" "}
+        </h1>
         <Row>
           <Col>
-            <div className={Styles.form}>
+            <div
+              style={{
+                maxWidth: "60vw",
+                margin: "auto",
+              }}
+            >
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
@@ -66,7 +78,12 @@ function Login() {
                   />
                   {error && <AlertUser alert={error} />}
                 </Form.Group>
-                <Button variant="primary" type="submit" onClick={submitHandler}>
+                <Button
+                  variant="primary"
+                  className="btn btn-lg"
+                  type="submit"
+                  onClick={submitHandler}
+                >
                   Login
                 </Button>
               </Form>

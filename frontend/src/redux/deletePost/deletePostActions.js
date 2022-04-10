@@ -34,7 +34,7 @@ export const deletePost = (postId) => {
           Authorization: `Bearer ${userInfo.token}`,
         },
       })
-      console.log(res)
+      console.log("deleted stuff")
       dispatch(deletePostSuccess())
     } catch (error) {
       dispatch(deletePostFailure(error.response.data.err))

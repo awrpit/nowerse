@@ -62,7 +62,12 @@ function UpdatePost() {
       <Container>
         {loading && <Loading />}
         <Form.Group className="mb-3">
-          <Form.Label>Enter Title </Form.Label>
+          <Form.Label>
+            {" "}
+            <h3 style={{ fontWeight: "bolder", marginTop: "50px" }}>
+              Enter Title
+            </h3>
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="enter title"
@@ -72,7 +77,9 @@ function UpdatePost() {
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Content </Form.Label>
+          <Form.Label>
+            <h3 style={{ fontWeight: "bolder" }}>Content</h3>
+          </Form.Label>
           <FormControl
             as="textarea"
             style={{ height: "40vh" }}
@@ -83,7 +90,7 @@ function UpdatePost() {
           />
         </Form.Group>
         <Button variant="primary" type="submit" onClick={submitHandler}>
-          UpdatePost
+          Update Post
         </Button>
       </Container>
       {error && <AlertUser alert={error} />}

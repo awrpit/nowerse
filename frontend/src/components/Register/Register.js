@@ -59,10 +59,23 @@ function Register() {
   return (
     <>
       <Container>
-        <h1 className={Styles.title}> Register</h1>
+        <h1
+          style={{
+            textAlign: "center",
+            padding: "25px 0",
+          }}
+        >
+          {" "}
+          Register
+        </h1>
         <Row>
           <Col>
-            <div className={Styles.form}>
+            <div
+              style={{
+                maxWidth: "60vw",
+                margin: "auto",
+              }}
+            >
               {loading && <Loading />}
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicName">

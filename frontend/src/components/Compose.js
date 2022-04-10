@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Container, Form, Button, FormControl } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router"
 import { createPost } from "../redux/createPost/createPostActions"
 import AlertUser from "./AlertUser"
 import Loading from "./Loading"
-
+import { BsCheckAll } from "react-icons/bs"
 function Compose() {
   const [post, setPost] = useState({
     title: "",
@@ -14,13 +14,9 @@ function Compose() {
 
   const dispatch = useDispatch()
   const createdPost = useSelector((state) => state.createPost)
-  const { loading, success, error } = createdPost
+  const { loading, success: createPostSuccess, error } = createdPost
 
   const navigate = useNavigate()
-
-  useEffect(() => {
-    if (success) navigate("/home")
-  }, [success, navigate])
 
   const changeHandler = (e) => {
     const { name, value } = e.target
@@ -29,9 +25,10 @@ function Compose() {
     })
   }
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault()
-    dispatch(createPost(post))
+    await dispatch(createPost(post))
+    navigate("/home")
   }
 
   return (
@@ -39,14 +36,10 @@ function Compose() {
       {loading && <Loading />}
       <Container>
         <Form.Group className="mb-3">
-          <Form.Label
-            style={{
-              marginTop: "30px",
-              fontSize: "1.5rem",
-              fontWeight: "bold",
-            }}
-          >
-            Enter Title{" "}
+          <Form.Label>
+            <h3 style={{ fontWeight: "bolder", marginTop: "50px" }}>
+              Enter Title
+            </h3>
           </Form.Label>
           <Form.Control
             type="text"
@@ -56,14 +49,8 @@ function Compose() {
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label
-            style={{
-              marginTop: "15px",
-              fontSize: "1.5rem",
-              fontWeight: "bold",
-            }}
-          >
-            Content{" "}
+          <Form.Label>
+            <h3 style={{ fontWeight: "bolder" }}> Content</h3>{" "}
           </Form.Label>
           <FormControl
             as="textarea"
@@ -74,12 +61,11 @@ function Compose() {
             onChange={changeHandler}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={submitHandler}>
-          Compose
+        <Button variant="outline-primary" type="submit" onClick={submitHandler}>
+          <BsCheckAll size={25} /> Compose
         </Button>
       </Container>
       {error && <AlertUser alert={error} />}
-      {console.log(post)}
     </>
   )
 }
