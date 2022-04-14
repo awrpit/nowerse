@@ -14,7 +14,7 @@ function Compose() {
 
   const dispatch = useDispatch()
   const createdPost = useSelector((state) => state.createPost)
-  const { loading, success: createPostSuccess, error } = createdPost
+  const { loading, error } = createdPost
 
   const navigate = useNavigate()
 

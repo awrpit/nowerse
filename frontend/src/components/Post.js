@@ -46,7 +46,6 @@ function Post() {
               margin: "20px",
             }}
           >
-            {" "}
             {data.post.title}
           </h1>
           <p

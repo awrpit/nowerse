@@ -5,12 +5,12 @@ import { HiOutlinePencilAlt } from "react-icons/hi"
 import { FiLogOut } from "react-icons/fi"
 function NavBar() {
   const userInfo = localStorage.getItem("userInfo")
+
   return (
     <>
       <Navbar bg="primary" expand="lg" variant="dark">
         <Container>
           <Navbar.Brand style={{ fontWeight: "800" }}>
-            {" "}
             <FaAngleUp /> Nowerse{" "}
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

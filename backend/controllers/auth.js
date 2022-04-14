@@ -19,7 +19,7 @@ const login = async (req, res) => {
     throw new UnAuthenticatedError("No such user with matching email.")
   }
 
-  const isPasswordCorrect = await user.comparePassword(password)
+  const isPasswordCorrect = await user.verifyHash(password)
   if (!isPasswordCorrect) {
     throw new UnAuthenticatedError("Incorrect Password")
   }

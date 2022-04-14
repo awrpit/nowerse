@@ -14,7 +14,7 @@ function UpdatePost() {
   })
   const dispatch = useDispatch()
   const updatedPost = useSelector((state) => state.updatePost)
-  const { loading, success, error } = updatedPost
+  const { loading, error } = updatedPost
   const params = useParams()
   const navigate = useNavigate()
   const postId = params.postId
@@ -22,7 +22,6 @@ function UpdatePost() {
   useEffect(() => {
     const fetchPost = async () => {
       const userInfo = JSON.parse(localStorage.getItem("userInfo"))
-      console.log(userInfo)
       try {
         const res = await axios.get(`/posts/${postId}`, {
           headers: {

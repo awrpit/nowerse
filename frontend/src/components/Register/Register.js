@@ -5,7 +5,6 @@ import { useNavigate } from "react-router"
 import Loading from "../Loading"
 import register from "../../redux/register/registerActions"
 import AlertUser from "../AlertUser"
-import Styles from "../../Styles/auth.module.css"
 function Register() {
   const [registerData, setregisterData] = useState({
     name: "",
@@ -65,7 +64,6 @@ function Register() {
             padding: "25px 0",
           }}
         >
-          {" "}
           Register
         </h1>
         <Row>
@@ -131,7 +129,6 @@ function Register() {
               </Form>
             </div>
           </Col>
-          {console.log(message)}
         </Row>
       </Container>
     </>

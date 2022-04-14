@@ -11,7 +11,6 @@ function NoContent() {
           textAlign: "center",
         }}
       >
-        {" "}
         Oops, this space looks empty, lets create your first post.
       </h3>
       <div style={{ textAlign: "center" }}>

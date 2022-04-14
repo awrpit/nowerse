@@ -39,7 +39,7 @@ const deletePost = async (req, res) => {
   if (!post) {
     throw new NotFoundError(`No post with id ${postId}`)
   }
-  res.status(200).json({ post })
+  res.status(200).json({})
 }
 
 module.exports = {

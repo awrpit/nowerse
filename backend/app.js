@@ -17,6 +17,7 @@ app.use(express.json())
 //routes
 app.use("/api/auth", authRouter)
 app.use("/posts", authenticateUser, postsRouter)
+
 app.get("/authtesting", authenticateUser, (req, res) => {
   console.log(req.user)
 })
@@ -24,7 +25,7 @@ app.get("/authtesting", authenticateUser, (req, res) => {
 app.use(pathNotFound)
 app.use(errorHandlerMiddleware)
 
-const port = 3001
+const port = 3400
 
 const start = async () => {
   try {
