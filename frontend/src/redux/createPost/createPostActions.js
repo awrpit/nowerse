@@ -30,12 +30,16 @@ export const createPost = (data) => {
     try {
       dispatch(createPostRequest)
       const json = JSON.stringify(data)
-      const res = await axios.post("/posts", json, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      })
+      const res = await axios.post(
+        "https://nowerse.herokuapp.com/posts",
+        json,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      )
       console.log(res)
       dispatch(createPostSuccess(res.data))
     } catch (error) {

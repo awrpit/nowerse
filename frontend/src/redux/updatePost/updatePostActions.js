@@ -30,12 +30,16 @@ export const updatePost = (data, postId) => {
     try {
       dispatch(updatePostRequest)
       const json = JSON.stringify(data)
-      const res = await axios.patch("/posts/" + postId, json, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      })
+      const res = await axios.patch(
+        "https://nowerse.herokuapp.com/posts/" + postId,
+        json,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      )
       dispatch(updatePostSuccess)
     } catch (error) {
       dispatch(updatePostFailure(error.response.data.err))

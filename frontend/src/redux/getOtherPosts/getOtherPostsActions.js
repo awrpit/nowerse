@@ -30,7 +30,7 @@ const getOtherPosts = () => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"))
     try {
       dispatch(getPostsRequest)
-      const res = await axios.get("/posts", {
+      const res = await axios.get("https://nowerse.herokuapp.com/posts", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${userInfo.token}`,

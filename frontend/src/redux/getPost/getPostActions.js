@@ -30,7 +30,7 @@ export const getPost = (id) => {
     console.log(userInfo)
     try {
       dispatch(getPostRequest)
-      const res = await axios.get(`/posts/${id}`, {
+      const res = await axios.get(`https://nowerse.herokuapp.com/posts/${id}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${userInfo.token}`,

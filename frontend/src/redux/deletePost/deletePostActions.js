@@ -28,12 +28,15 @@ export const deletePost = (postId) => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"))
     try {
       dispatch(deletePostRequest)
-      const res = await axios.delete("/posts/" + postId, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      })
+      const res = await axios.delete(
+        "https://nowerse.herokuapp.com/posts/" + postId,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      )
       console.log("deleted stuff")
       dispatch(deletePostSuccess())
     } catch (error) {

@@ -5,6 +5,9 @@ const express = require("express")
 const app = express()
 // connect to the db
 const connectDB = require("./db/connect")
+//enable cors
+var cors = require("cors")
+app.use(cors())
 // error handlers
 const pathNotFound = require("./middleware/pathNotFound")
 const errorHandlerMiddleware = require("./middleware/errorHandler")
@@ -25,7 +28,7 @@ app.get("/authtesting", authenticateUser, (req, res) => {
 app.use(pathNotFound)
 app.use(errorHandlerMiddleware)
 
-const port = process.env.PORT || 3400
+const port = process.env.PORT || 5500
 
 const start = async () => {
   try {

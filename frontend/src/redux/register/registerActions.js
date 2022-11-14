@@ -31,11 +31,15 @@ const register = (data) => {
     try {
       dispatch(registerUserRequest)
       const json = JSON.stringify(data)
-      const res = await axios.post("/api/auth/register", json, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      const res = await axios.post(
+        "https://nowerse.herokuapp.com/api/auth/register",
+        json,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       dispatch(registerUserSuccess(res.data))
       dispatch(loginUserSuccess(res.data))
       localStorage.setItem("userInfo", JSON.stringify(res.data))

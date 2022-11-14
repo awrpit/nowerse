@@ -28,11 +28,15 @@ export const login = (data) => {
     dispatch(loginUserRequest)
     try {
       const json = JSON.stringify(data)
-      const res = await axios.post("/api/auth/login", json, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      const res = await axios.post(
+        "https://nowerse.herokuapp.com/api/auth/login",
+        json,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       dispatch(loginUserSuccess(res.data))
       localStorage.setItem("userInfo", JSON.stringify(res.data))
     } catch (error) {
