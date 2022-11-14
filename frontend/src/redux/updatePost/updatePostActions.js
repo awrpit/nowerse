@@ -40,6 +40,7 @@ export const updatePost = (data, postId) => {
           },
         }
       )
+      console.log(res)
       dispatch(updatePostSuccess)
     } catch (error) {
       dispatch(updatePostFailure(error.response.data.err))

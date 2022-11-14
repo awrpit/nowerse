@@ -37,7 +37,7 @@ export const deletePost = (postId) => {
           },
         }
       )
-      console.log("deleted stuff")
+      console.log(res)
       dispatch(deletePostSuccess())
     } catch (error) {
       dispatch(deletePostFailure(error.response.data.err))
