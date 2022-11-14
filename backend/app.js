@@ -25,7 +25,7 @@ app.get("/authtesting", authenticateUser, (req, res) => {
 app.use(pathNotFound)
 app.use(errorHandlerMiddleware)
 
-const port = 3400
+const port = process.env.PORT || 3400
 
 const start = async () => {
   try {
