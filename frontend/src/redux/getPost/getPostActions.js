@@ -30,12 +30,15 @@ export const getPost = (id) => {
     console.log(userInfo)
     try {
       dispatch(getPostRequest)
-      const res = await axios.get(`https://nowerse.herokuapp.com/posts/${id}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      })
+      const res = await axios.get(
+        `https://nowerse-production.up.railway.app/posts/${id}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      )
       console.log(res.data)
       dispatch(getPostSuccess(res.data))
     } catch (error) {

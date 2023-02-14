@@ -29,7 +29,7 @@ export const login = (data) => {
     try {
       const json = JSON.stringify(data)
       const res = await axios.post(
-        "https://nowerse.herokuapp.com/api/auth/login",
+        "https://nowerse-production.up.railway.app/api/auth/login",
         json,
         {
           headers: {

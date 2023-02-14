@@ -32,7 +32,7 @@ const register = (data) => {
       dispatch(registerUserRequest)
       const json = JSON.stringify(data)
       const res = await axios.post(
-        "https://nowerse.herokuapp.com/api/auth/register",
+        "https://nowerse-production.up.railway.app/api/auth/register",
         json,
         {
           headers: {

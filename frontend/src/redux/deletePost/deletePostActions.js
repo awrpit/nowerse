@@ -29,7 +29,7 @@ export const deletePost = (postId) => {
     try {
       dispatch(deletePostRequest)
       const res = await axios.delete(
-        "https://nowerse.herokuapp.com/posts/" + postId,
+        "https://nowerse-production.up.railway.app/posts/" + postId,
         {
           headers: {
             "Content-Type": "application/json",

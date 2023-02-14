@@ -30,12 +30,15 @@ const getOtherPosts = () => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"))
     try {
       dispatch(getPostsRequest)
-      const res = await axios.get("https://nowerse.herokuapp.com/posts", {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      })
+      const res = await axios.get(
+        "https://nowerse-production.up.railway.app/posts",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      )
       dispatch(getPostsSuccess(res.data))
     } catch (error) {
       dispatch(getPostsFailure(error.response.data.err))

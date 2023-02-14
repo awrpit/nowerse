@@ -31,7 +31,7 @@ export const updatePost = (data, postId) => {
       dispatch(updatePostRequest)
       const json = JSON.stringify(data)
       const res = await axios.patch(
-        "https://nowerse.herokuapp.com/posts/" + postId,
+        "https://nowerse-production.up.railway.app/posts/" + postId,
         json,
         {
           headers: {

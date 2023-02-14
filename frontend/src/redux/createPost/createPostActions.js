@@ -31,7 +31,7 @@ export const createPost = (data) => {
       dispatch(createPostRequest)
       const json = JSON.stringify(data)
       const res = await axios.post(
-        "https://nowerse.herokuapp.com/posts",
+        "https://nowerse-production.up.railway.app/posts",
         json,
         {
           headers: {
